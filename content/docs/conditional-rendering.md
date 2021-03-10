@@ -118,6 +118,38 @@ ReactDOM.render(
 
 [**Try it on CodePen**](https://codepen.io/gaearon/pen/QKzAgB?editors=0010)
 
+
+### how to use If directly in jsx?!
+
+you should use IIFE(immediately invoked function expression) and write your if statement in it.
+notice that you write that in a curly braces!
+
+function ShowFiles(props) {
+    return (
+        <TableCell>
+            {
+                (function () {
+                    if (typeof item === 'boolean') {
+                        if (item === true) {
+                            return <CheckIcon />
+                        }
+                        else {
+                            return <CancelIcon />
+                        }
+                    }
+                    else {
+                        return item;
+                    }
+
+                })()
+            }
+
+        </TableCell>
+
+    );
+}
+
+
 While declaring a variable and using an `if` statement is a fine way to conditionally render a component, sometimes you might want to use a shorter syntax. There are a few ways to inline conditions in JSX, explained below.
 
 ### Inline If with Logical && Operator {#inline-if-with-logical--operator}
